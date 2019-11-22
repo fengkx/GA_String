@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .main {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            min-height: 20rem;
+            margin: auto;
+            max-width: 50rem;
+            
+        }
+        @media (prefers-color-scheme: dark) {
+            .main {
+                color: white;
+            }
+            body {
+                background-color: black;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1 class="main" id="str">XXXXXXX</h1>
+    <script src="gen.js"></script>
+    <script>
+        const txt = document.getElementById('str');
+        const start = Date.now()
+        let history = generateTargetWithHistory('Keep It Simple and Stupid');
+        console.log((Date.now() - start) / 1000)
+        console.log(history.length)
+        history.slice(this.length-200).forEach((str, i) => {
+            setTimeout(() => {
+                txt.innerText = str;
+            }, i*30)
+        })
+    </script>
+</body>
+</html>
